@@ -4,11 +4,16 @@ PwnSpirit's CTF notes
 ----
 
 > There is only one heroism in the world, that is, after recognizing the truth of life, I still love life. By Roman Roland
-<p align=center>
+<!-- <p align=center>
 <img src="https://github.com/user-attachments/assets/101a9f47-a64c-49b2-b746-280909a79c26"/>
 </p>
+-->
+#### Installation [***test purpose***]
+```sh
+curl -sSL https://raw.githubusercontent.com/pwnspirit/CTF-Writeups/main/install.sh | bash
+```
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
+![----------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 
 ## Index of challenges and their respective writeups.
