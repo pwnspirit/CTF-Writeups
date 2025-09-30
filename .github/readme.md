@@ -18,6 +18,7 @@ curl -sSL https://raw.githubusercontent.com/pwnspirit/CTF-Writeups/main/install.
 1. [Web Academy](https://portswigger.net/web-security)
 * [OS command injection](https://portswigger.net/web-security/all-labs#os-command-injection)
     * [OS command injection, simple case](https://github.com/pwnspirit/CTF-Writeups/blob/main/Web%20Security/OS%20command%20injection/OS%20command%20injection%2C%20simple%20case/readme.md)
+    * [OS command injetion, simple case](./Web\Security/OS\command\injection/OS\command\injection,\simple\case/readme.md)
 
 2. [Root-Me](https://www.root-me.org/)
 * [Web Client](https://www.root-me.org/en/Challenges/Web-Client/)
