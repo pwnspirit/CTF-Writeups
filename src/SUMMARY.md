@@ -1,6 +1,6 @@
 # Summary
 
-[About](./about.md)
+[~/](./pwn.md)
 
 # Nix-OS
 * [Package nextjs in nix](./Nix-OS/package-nextjs-Nix.md)
