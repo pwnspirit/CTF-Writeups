@@ -7,5 +7,4 @@ This time also reading source code but with a little bit change. We can see the 
 
 I decoded the given encoded string/password and it gave me plain password.
 
-</br>
 <img width="574" height="335" alt="image" src="https://github.com/user-attachments/assets/02ff5593-214d-477c-a0a1-31f931241019" />
