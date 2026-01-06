@@ -61,51 +61,29 @@ We have `char buf[40];` buffer set but the program allows `fgets(buf, 45, stdin)
 2. By overflowing the buffer, we can overwrite `check`.
 3. We need to change `check` to `0xdeadbeef`.
 
+Let's quickly check for the binary protections and jump right into it.
+<img width="1116" height="111" alt="image" src="https://github.com/user-attachments/assets/36c842cb-04df-42b2-a06b-60e81b0778ea" />
 
+hmm. looks simple. 
 
+Here I'm giving the exact 40 long buffer and see what it return.
+<img width="1133" height="502" alt="image" src="https://github.com/user-attachments/assets/09a92835-4c50-4fdc-87dd-239cc06e849c" />
 
+Well, as expected, providing extra 4 bytes (`\xef\xbe\xad\xde`) to overflow into check and we can now overwrite it with `0xdeadbeef`.
+```c
+if ((check != 0x04030201) && (check != 0xdeadbeef))
+    printf ("\nYou are on the right way!\n");
 
+if (check == 0xdeadbeef)
+```
 
+<img width="651" height="153" alt="image" src="https://github.com/user-attachments/assets/4a83ebce-678b-425e-bee6-9b5d8d693b3e" />
 
+It closed the shell immediatly, Let's try run `cat` to keep `stdin` open.
 
+<img width="800" height="367" alt="image" src="https://github.com/user-attachments/assets/546844b8-ec86-408f-85d0-225121667053" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Wallah, we got the shell.
 
 
 
