@@ -1,7 +1,7 @@
 # pwn
 
 <h3 align="center">
-	<img src="https://avatars.githubusercontent.com/u/211311179?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d
+	<img src="https://avatars.githubusercontent.com/u/109761382?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d
 )" width="100" alt="Logo"/><br/>
 @pwnspirit
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
