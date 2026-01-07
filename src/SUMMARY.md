@@ -26,6 +26,7 @@
 - [WEB SERVER](./rootme/WEB_Server/readme.md)
   - [JWT Introduction](./rootme/WEB_Server/JWT-Introduction/readme.md)
   - [HTTP - Open redirect](./rootme/WEB_Server/HTTP-Openredirect.md)
+  - [JWT - Weak secret](./rootme/WEB_Server/JWT-Weak-secret.md)
 
 - [Network](./rootme/Network/readme.md)
   - [FTP - authentication](./rootme/Network/FTP_authentication.md)
