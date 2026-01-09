@@ -5,9 +5,11 @@
 
 Starting task, as we are going to face with a server run by a Local Sticker Shop hosted. I started the machine and jump over it.
 
-<img width="1000" align="starting the machine" src="https://github.com/user-attachments/assets/3f0cd8ae-fec8-49b9-b1f2-c571779d3b88" />
 
-<img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
+<img alt="starting the machine" src="https://github.com/user-attachments/assets/15653f9d-7c60-470b-b242-cd5c12b856a9" />
+
+<img width="1000" align="catppuccin line" src="https://github-production-user-asset-6210df.s3.amazonaws.com/109761382/399944576-8a04c1c1-9f58-4f23-9548-4c71971b3576.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260109T140147Z&X-Amz-Expires=300&X-Amz-Signature=2be548619a8625a1b197b2e29de99408a8bbcf92c682e5bcf78b16cc0cdd6762&X-Amz-SignedHeaders=host" />
+
 
 
 The first step I took is to visit the website and looked for the source and found ``/submit_feedback`` dir, which catched me.
