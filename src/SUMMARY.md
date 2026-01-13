@@ -3,7 +3,7 @@
 [~/](./pwn.md)
 
 # TryHackMe
-<!-- - [The Sticker Shop](./tryhackme/The-Sticker-Shop.md) -->
+- [The Sticker Shop](./tryhackme/The-Sticker-Shop.md)
 
 # Hackerone CTF
 - [Get Started](./hacker101/get-started/readme.md)
@@ -28,6 +28,11 @@
   - [HTTP - Open redirect](./rootme/WEB_Server/HTTP-Openredirect.md)
   - [JWT - Weak secret](./rootme/WEB_Server/JWT-Weak-secret.md)
   - [HTTP - User-agent](./rootme/WEB_Server/HTTP-User-agent.md)
+  - [HTTP - Cookies](./rootme/WEB_Server/HTTP-POST.md)
+  - [HTTP Directory Indexing](./rootme/WEB_Server/HTTP-Directory-indexing.md)
+  - [HTTP Improper Redirection](./rootme/WEB_Server/HTTP-improper-redirect.md)
+  - [PHP Command Injection](./rootme/WEB_Server/php-command-injection.md)
+  - [HTTP - POST](./rootme/WEB_Server/HTTP-POST.md)
 
 - [Network](./rootme/Network/readme.md)
   - [FTP - authentication](./rootme/Network/FTP_authentication.md)
