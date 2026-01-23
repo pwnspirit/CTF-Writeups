@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FTP - authentication</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../pwn.html">~/</a></li><li class="chapter-item expanded affix "><li class="part-title">TryHackMe</li><li class="chapter-item expanded "><a href="../../tryhackme/The-Sticker-Shop.html"><strong aria-hidden="true">1.</strong> The Sticker Shop</a></li><li class="chapter-item expanded affix "><li class="part-title">Hackerone CTF</li><li class="chapter-item expanded "><a href="../../hacker101/get-started/index.html"><strong aria-hidden="true">2.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="../../hacker101/Micro-CMSv1/index.html"><strong aria-hidden="true">3.</strong> Micro CMSv1</a></li><li class="chapter-item expanded affix "><li class="part-title">RootMe</li><li class="chapter-item expanded "><a href="../../rootme/APP_SYSTEM/index.html"><strong aria-hidden="true">4.</strong> APP System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rootme/APP_SYSTEM/ELF_x86_Stack_buffer_overflow_basic_1/index.html"><strong aria-hidden="true">4.1.</strong> ELF x86 Stack BOF basic 1</a></li></ol></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/index.html"><strong aria-hidden="true">5.</strong> WEB CLIENT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/HTML_disabled_buttons/index.html"><strong aria-hidden="true">5.1.</strong> HTML - disabled buttons</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/JS_Authentication/index.html"><strong aria-hidden="true">5.2.</strong> JS Authentication</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript_Authentication/index.html"><strong aria-hidden="true">5.3.</strong> Javascript - Authentication</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript_Native_code/index.html"><strong aria-hidden="true">5.4.</strong> Javascript - Native code</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Obfuscation_JS/index.html"><strong aria-hidden="true">5.5.</strong> Obfuscation JS</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript_Obfuscation_2/index.html"><strong aria-hidden="true">5.6.</strong> Javascript - Obfuscation 2</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript_Source/index.html"><strong aria-hidden="true">5.7.</strong> Javascript - Source</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript-Obfuscation-3/index.html"><strong aria-hidden="true">5.8.</strong> Javascript - Obfuscation 3</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_CLIENT/Javascript-Webpack/index.html"><strong aria-hidden="true">5.9.</strong> Javascript Webpack</a></li></ol></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/index.html"><strong aria-hidden="true">6.</strong> WEB SERVER</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/JWT-Introduction/index.html"><strong aria-hidden="true">6.1.</strong> JWT Introduction</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-Openredirect.html"><strong aria-hidden="true">6.2.</strong> HTTP - Open redirect</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/JWT-Weak-secret.html"><strong aria-hidden="true">6.3.</strong> JWT - Weak secret</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-User-agent.html"><strong aria-hidden="true">6.4.</strong> HTTP - User-agent</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-POST.html"><strong aria-hidden="true">6.5.</strong> HTTP - Cookies</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-Directory-indexing.html"><strong aria-hidden="true">6.6.</strong> HTTP Directory Indexing</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-improper-redirect.html"><strong aria-hidden="true">6.7.</strong> HTTP Improper Redirection</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/php-command-injection.html"><strong aria-hidden="true">6.8.</strong> PHP Command Injection</a></li><li class="chapter-item expanded "><a href="../../rootme/WEB_Server/HTTP-POST.html"><strong aria-hidden="true">6.9.</strong> HTTP - POST</a></li></ol></li><li class="chapter-item expanded "><a href="../../rootme/Network/index.html"><strong aria-hidden="true">7.</strong> Network</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rootme/Network/FTP_authentication.html" class="active"><strong aria-hidden="true">7.1.</strong> FTP - authentication</a></li></ol></li><li class="chapter-item expanded "><a href="../../rootme/APP_Script/index.html"><strong aria-hidden="true">8.</strong> APP SCRIPT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../rootme/APP_Script/bash-system1.html"><strong aria-hidden="true">8.1.</strong> Bash - System 1</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ftp---authentication"><a class="header" href="#ftp---authentication">FTP - authentication</a></h1>
+<p>I think the most easiest chall, the network portion is a new for me to I gotta try this.</p>
+<p>There is a <code>pcap</code> file which we have to analyze and find the required password. So, I will be using <code>tshark</code> tool for analyzing the <code>pcap</code> file.</p>
+<p>If you want to install <code>tshark</code> in arch linux , you can install it using following command.</p>
+<pre><code class="language-bash">sudo pacman -S wireshark-qt
+</code></pre>
+<p>First, I would check what kind of traffic is present in the file, as shown below.</p>
+<details><summary>`tshark -nr ch1.pcap`</summary>
+<pre><code class="language-bash">1   0.000000 10.20.144.150 → 10.20.144.151 TCP 74 35974 → 21 [SYN] Seq=0 Win=32648 Len=0 MSS=1380 WS=1 TSval=1657560000 TSecr=0
+    2   0.000320 10.20.144.151 → 10.20.144.150 TCP 78 21 → 35974 [SYN, ACK] Seq=0 Ack=1 Win=16384 Len=0 MSS=1356 WS=1 TSval=1657390000 TSecr=1657560000
+    3   0.000570 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [ACK] Seq=1 Ack=1 Win=32648 Len=0 TSval=1657560000 TSecr=1657390000
+    4   0.060630 10.20.144.151 → 10.20.144.150 FTP 106 Response: 220-QTCP at fran.csg.stercomm.com.
+    5   0.275440 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [ACK] Seq=1 Ack=37 Win=32648 Len=0 TSval=1657560500 TSecr=1657390000
+    6   0.275760 10.20.144.151 → 10.20.144.150 FTP 126 Response: 220 Connection will close if idle more than 5 minutes.
+    7   0.276140 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [ACK] Seq=1 Ack=93 Win=32648 Len=0 TSval=1657560500 TSecr=1657390000
+    8   4.216600 10.20.144.150 → 10.20.144.151 FTP 81 Request: USER cdts3500
+    9   4.217350 10.20.144.151 → 10.20.144.150 FTP 91 Response: 331 Enter password.
+   10   4.217630 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=16 Ack=114 Win=32648 Len=0 TSval=1657564500 TSecr=1657394000
+   11   7.639420 10.20.144.150 → 10.20.144.151 FTP 81 Request: PASS cdts3500
+   12   7.843260 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=114 Ack=31 Win=16384 Len=0 TSval=1657397500 TSecr=1657568000
+   13   8.184000 10.20.144.151 → 10.20.144.150 FTP 95 Response: 230 CDTS3500 logged on.
+   14   8.184360 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=31 Ack=139 Win=32648 Len=0 TSval=1657568500 TSecr=1657398000
+   15   8.185040 10.20.144.150 → 10.20.144.151 FTP 72 Request: SYST
+   16   8.185260 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=139 Ack=37 Win=16384 Len=0 TSval=1657398000 TSecr=1657568500
+   17   8.192750 10.20.144.151 → 10.20.144.150 FTP 147 Response: 215  OS/400 is the remote operating system. The TCP/IP version is "V5R2M0".
+   18   8.193000 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=37 Ack=216 Win=32648 Len=0 TSval=1657568500 TSecr=1657398000
+   19   8.193570 10.20.144.150 → 10.20.144.151 FTP 80 Request: SITE NAMEFMT
+   20   8.193780 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=216 Ack=51 Win=16384 Len=0 TSval=1657398000 TSecr=1657568500
+   21   8.194900 10.20.144.151 → 10.20.144.150 FTP 105 Response: 250  Now using naming format "0".
+   22   8.195140 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=51 Ack=251 Win=32648 Len=0 TSval=1657568500 TSecr=1657398000
+   23   8.195700 10.20.144.150 → 10.20.144.151 FTP 71 Request: PWD
+   24   8.195910 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=251 Ack=56 Win=16384 Len=0 TSval=1657398000 TSecr=1657568500
+   25   8.197050 10.20.144.151 → 10.20.144.150 FTP 106 Response: 257 "CDTS3500" is current library.
+   26   8.197280 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=56 Ack=287 Win=32648 Len=0 TSval=1657568500 TSecr=1657398000
+   27  20.765720 10.20.144.150 → 10.20.144.151 FTP 72 Request: PASV
+   28  20.766000 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=287 Ack=62 Win=16384 Len=0 TSval=1657410500 TSecr=1657581000
+   29  20.787770 10.20.144.151 → 10.20.144.150 FTP 121 Response: 227 Entering Passive Mode (10,20,144,151,62,141).
+   30  20.788010 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=62 Ack=338 Win=32648 Len=0 TSval=1657581000 TSecr=1657410500
+   31  20.797560 10.20.144.150 → 10.20.144.151 TCP 74 35976 → 16013 [SYN] Seq=0 Win=32768 Len=0 MSS=1380 WS=1 TSval=1657581000 TSecr=0
+   32  20.797850 10.20.144.151 → 10.20.144.150 TCP 78 16013 → 35976 [SYN, ACK] Seq=0 Ack=1 Win=32768 Len=0 MSS=1356 WS=1 TSval=1657410500 TSecr=1657581000
+   33  20.798130 10.20.144.150 → 10.20.144.151 TCP 66 35976 → 16013 [ACK] Seq=1 Ack=1 Win=32768 Len=0 TSval=1657581000 TSecr=1657410500
+   34  20.798250 10.20.144.150 → 10.20.144.151 FTP 91 Request: RETR qgpl/apkeyf.apkeyf
+   35  20.798450 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=338 Ack=87 Win=16384 Len=0 TSval=1657410500 TSecr=1657581000
+   36  21.202190 10.20.144.151 → 10.20.144.150 FTP 132 Response: 150 Retrieving member APKEYF in file APKEYF in library QGPL.
+   37  21.202460 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=87 Ack=400 Win=32648 Len=0 TSval=1657581500 TSecr=1657411000
+   38  21.313290 10.20.144.151 → 10.20.144.150 FTP-DATA 509 FTP Data: 439 bytes (PASV) (RETR qgpl/apkeyf.apkeyf)
+   39  21.393980 10.20.144.151 → 10.20.144.150 TCP 70 16013 → 35976 [FIN, PSH, ACK] Seq=440 Ack=1 Win=32768 Len=0 TSval=1657411500 TSecr=1657581000
+   40  21.394160 10.20.144.151 → 10.20.144.150 FTP 113 Response: 250 File transfer completed successfully.
+   41  21.394310 10.20.144.150 → 10.20.144.151 TCP 66 35976 → 16013 [ACK] Seq=1 Ack=441 Win=32768 Len=0 TSval=1657581500 TSecr=1657411500
+   42  21.394430 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=87 Ack=443 Win=32648 Len=0 TSval=1657581500 TSecr=1657411500
+   43  22.169470 10.20.144.150 → 10.20.144.151 TCP 66 35976 → 16013 [FIN, PSH, ACK] Seq=1 Ack=441 Win=32768 Len=0 TSval=1657582500 TSecr=1657411500
+   44  22.169800 10.20.144.151 → 10.20.144.150 TCP 70 16013 → 35976 [PSH, ACK] Seq=441 Ack=2 Win=32768 Len=0 TSval=1657412000 TSecr=1657582500
+   45  31.007220 10.20.144.150 → 10.20.144.151 FTP 72 Request: QUIT
+   46  31.007560 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=443 Ack=93 Win=16384 Len=0 TSval=1657421000 TSecr=1657591500
+   47  31.007750 10.20.144.151 → 10.20.144.150 FTP 101 Response: 221 QUIT subcommand received.
+   48  31.007830 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [FIN, PSH, ACK] Seq=474 Ack=93 Win=16384 Len=0 TSval=1657421000 TSecr=1657591500
+   49  31.008000 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=93 Ack=474 Win=32648 Len=0 TSval=1657591500 TSecr=1657421000
+   50  31.008810 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [FIN, PSH, ACK] Seq=93 Ack=474 Win=32648 Len=0 TSval=1657591500 TSecr=1657421000
+   51  31.008840 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=94 Ack=475 Win=32648 Len=0 TSval=1657591500 TSecr=1657421000
+   52  31.009050 10.20.144.151 → 10.20.144.150 TCP 70 21 → 35974 [PSH, ACK] Seq=475 Ack=94 Win=16384 Len=0 TSval=1657421000 TSecr=1657591500
+   53  35.659010 10.20.144.150 → 10.20.144.151 TCP 74 35977 → 23 [SYN] Seq=0 Win=32648 Len=0 MSS=1380 WS=1 TSval=1657596000 TSecr=0
+   54  35.659340 10.20.144.151 → 10.20.144.150 TCP 78 23 → 35977 [SYN, ACK] Seq=0 Ack=1 Win=16384 Len=0 MSS=1356 WS=1 TSval=1657425500 TSecr=1657596000
+   55  35.659660 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [ACK] Seq=1 Ack=1 Win=32648 Len=0 TSval=1657596000 TSecr=1657425500
+   56  35.660510 10.20.144.151 → 10.20.144.150 TELNET 76 Do New Environment Option, Do Terminal Type
+   57  35.713440 10.20.144.150 → 10.20.144.151 TELNET 69 Will Terminal Type
+   58  35.713670 10.20.144.151 → 10.20.144.150 TELNET 76 Suboption Terminal Type
+   59  35.740240 10.20.144.150 → 10.20.144.151 TELNET 69 Will New Environment Option
+   60  35.740480 10.20.144.151 → 10.20.144.150 TELNET 95 Suboption New Environment Option
+   61  35.740750 10.20.144.150 → 10.20.144.151 TELNET 82 Suboption Terminal Type
+   62  35.740960 10.20.144.151 → 10.20.144.150 TELNET 82 Do End of Record, Will End of Record, Do Binary Transmission, Will Binary Transmission
+   63  35.741210 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=23 Ack=50 Win=32648 Len=0 TSval=1657596000 TSecr=1657426000
+   64  35.741580 10.20.144.150 → 10.20.144.151 TELNET 108 Suboption New Environment Option
+   65  35.945290 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=50 Ack=65 Win=16384 Len=0 TSval=1657426000 TSecr=1657596000
+   66  35.945610 10.20.144.150 → 10.20.144.151 TELNET 78 Will End of Record, Do End of Record, Do Binary Transmission, Will Binary Transmission
+   67  35.945810 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=50 Ack=77 Win=16384 Len=0 TSval=1657426000 TSecr=1657596500
+   68  36.350870 10.20.144.151 → 10.20.144.150 TN5250 145 TN5250 Data from Mainframe, End of Record
+   69  37.136450 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=77 Ack=125 Win=32648 Len=0 TSval=1657597000 TSecr=1657426500
+   70  37.140450 10.20.144.151 → 10.20.144.150 TN5250 573 TN5250 Data from Mainframe, End of Record
+   71  37.143150 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=77 Ack=628 Win=32648 Len=0 TSval=1657597000 TSecr=1657426500
+   72  41.737360 10.20.144.150 → 10.20.144.151 TN5250 100 TN5250 Data to Mainframe, End of Record
+   73  41.737640 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=628 Ack=111 Win=16384 Len=0 TSval=1657432000 TSecr=1657602000
+   74  41.964780 10.20.144.151 → 10.20.144.150 TN5250 89 TN5250 Data from Mainframe, End of Record
+   75  41.965040 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=111 Ack=647 Win=32648 Len=0 TSval=1657602500 TSecr=1657432000
+   76  42.075290 10.20.144.150 → 10.20.144.151 TN5250 139 TN5250 Data to Mainframe, End of Record
+   77  42.075500 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=647 Ack=184 Win=16384 Len=0 TSval=1657432000 TSecr=1657602500
+   78  42.076210 10.20.144.151 → 10.20.144.150 TN5250 82 TN5250 Data from Mainframe, End of Record
+   79  42.076530 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=184 Ack=659 Win=32648 Len=0 TSval=1657602500 TSecr=1657432000
+   80  42.156700 10.20.144.151 → 10.20.144.150 TN5250 157 TN5250 Data from Mainframe, End of Record
+   81  42.156960 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=184 Ack=746 Win=32648 Len=0 TSval=1657602500 TSecr=1657432500
+   82  42.179050 10.20.144.151 → 10.20.144.150 TN5250 233 TN5250 Data from Mainframe, End of Record
+   83  42.179310 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=184 Ack=909 Win=32648 Len=0 TSval=1657602500 TSecr=1657432500
+   84  42.179570 10.20.144.151 → 10.20.144.150 TN5250 152 TN5250 Data from Mainframe, End of Record
+   85  42.179830 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=184 Ack=991 Win=32648 Len=0 TSval=1657602500 TSecr=1657432500
+   86  43.279170 10.20.144.150 → 10.20.144.151 TN5250 81 TN5250 Data to Mainframe, End of Record
+   87  43.279500 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=991 Ack=199 Win=16384 Len=0 TSval=1657433500 TSecr=1657604000
+   88  43.326260 10.20.144.151 → 10.20.144.150 TN5250 84 TN5250 Data from Mainframe, End of Record
+   89  43.326500 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=199 Ack=1005 Win=32648 Len=0 TSval=1657604000 TSecr=1657433500
+   90  43.334860 10.20.144.151 → 10.20.144.150 TN5250 812 TN5250 Data from Mainframe, End of Record
+   91  43.335150 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=199 Ack=1747 Win=32648 Len=0 TSval=1657604000 TSecr=1657433500
+   92  46.018550 10.20.144.150 → 10.20.144.151 TN5250 93 TN5250 Data to Mainframe, End of Record
+   93  46.018860 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=1747 Ack=226 Win=16384 Len=0 TSval=1657436000 TSecr=1657606500
+   94  47.763420 10.20.144.151 → 10.20.144.150 TELNET 1426 Telnet Data…
+   95  47.763550 10.20.144.151 → 10.20.144.150 TN5250 450 TN5250 Data from Mainframe, End of Record
+   96  47.763900 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=226 Ack=3103 Win=32648 Len=0 TSval=1657608500 TSecr=1657438000
+   97  47.764010 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=226 Ack=3483 Win=32648 Len=0 TSval=1657608500 TSecr=1657438000
+   98  49.806640 10.20.144.150 → 10.20.144.151 TN5250 81 TN5250 Data to Mainframe, End of Record
+   99  49.806870 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=3483 Ack=241 Win=16384 Len=0 TSval=1657440000 TSecr=1657610500
+  100  49.825890 10.20.144.151 → 10.20.144.150 TN5250 729 TN5250 Data from Mainframe, End of Record
+  101  49.826140 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=241 Ack=4142 Win=32648 Len=0 TSval=1657610500 TSecr=1657440000
+  102  53.784480 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [FIN, PSH, ACK] Seq=241 Ack=4142 Win=32648 Len=0 TSval=1657614500 TSecr=1657440000
+  103  53.784750 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [PSH, ACK] Seq=4142 Ack=242 Win=16384 Len=0 TSval=1657444000 TSecr=1657614500
+  104  53.791460 10.20.144.151 → 10.20.144.150 TCP 70 23 → 35977 [FIN, PSH, ACK] Seq=4142 Ack=242 Win=16384 Len=0 TSval=1657444000 TSecr=1657614500
+    105  53.791680 10.20.144.150 → 10.20.144.151 TCP 66 35977 → 23 [PSH, ACK] Seq=242 Ack=4143 Win=32648 Len=0 TSval=1657614500 TSecr=1657444000
+</code></pre>
+</details>
+<p>From the above, what we can see is;</p>
+<div class="table-wrapper"><table><thead><tr><th>Direction</th><th>Source IP</th><th>Destination IP</th><th>Protocols Involved</th></tr></thead><tbody>
+<tr><td>Client → Server</td><td>10.20.144.150</td><td>10.20.144.151</td><td>FTP, FTP-DATA, Telnet, TN5250</td></tr>
+<tr><td>Server → Client</td><td>10.20.144.151</td><td>10.20.144.150</td><td>FTP responses, TN5250 replies</td></tr>
+</tbody></table>
+</div>
+<p>And there we can see in packet <code>8</code> user <code>cdts3500</code>, is trying to login and in packet <code>11</code> there is password entered for the user <code>cdts3500</code> which is same as username <code>cdts3500</code>.</p>
+<pre><code class="language-bash">    8   4.216600 10.20.144.150 → 10.20.144.151 FTP 81 Request: USER cdts3500
+    9   4.217350 10.20.144.151 → 10.20.144.150 FTP 91 Response: 331 Enter password.
+   10   4.217630 10.20.144.150 → 10.20.144.151 TCP 66 35974 → 21 [PSH, ACK] Seq=16 Ack=114 Win=32648 Len=0 TSval=1657564500 TSecr=1657394000
+   11   7.639420 10.20.144.150 → 10.20.144.151 FTP 81 Request: PASS cdts3500
+</code></pre>
+<p>There I confirmed the passoword is <code>cdts3500</code>, I submitted it and solved the challenge.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../rootme/Network/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../rootme/APP_Script/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../rootme/Network/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../rootme/APP_Script/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
